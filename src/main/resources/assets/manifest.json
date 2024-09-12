@@ -1,0 +1,21 @@
+{
+     "format_version": 2,
+     "header": {
+          "name": "@teseract/sculk-loom-template",
+          "description": "Project Description",
+          "version": "1.0.0",
+          "uuid": "ba48e319-9948-4800-a460-1956fc4eeae0",
+          "min_engine_version": [
+               1,
+               21,
+               20
+          ]
+     },
+     "modules": [
+          {
+               "type": "resources",
+               "uuid": "5cb6b4ec-c0c6-433e-a61c-2a6d36a2845d",
+               "version": "1.0.0"
+          }
+     ]
+}

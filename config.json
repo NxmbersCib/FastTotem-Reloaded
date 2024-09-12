@@ -1,0 +1,37 @@
+{
+     "$schema": "https://raw.githubusercontent.com/Bedrock-OSS/regolith-schemas/main/config/v1.4.json",
+     "author": "NxmbersCib",
+     "name": "Fast Totem Reloaded",
+     "packs": {
+          "behaviorPack": "./src/main/resources/behavior",
+          "resourcePack": "./src/main/resources/assets"
+     },
+     "regolith": {
+          "dataPath": "./src/main/js",
+          "filterDefinitions": {
+               "swc": {
+                    "runWith": "nodejs",
+                    "script": "./filters/tesselator/swc.js"
+               },
+               "esbuild": {
+                    "runWith": "nodejs",
+                    "script": "./filters/tesselator/esbuild.js"
+               }
+          },
+          "formatVersion": "1.4.0",
+          "profiles": {
+               "default": {
+                    "export": {
+                         "build": "standard",
+                         "readOnly": false,
+                         "target": "development"
+                    },
+                    "filters": [
+                         {
+                              "filter": "esbuild"
+                         }
+                    ]
+               }
+          }
+     }
+}

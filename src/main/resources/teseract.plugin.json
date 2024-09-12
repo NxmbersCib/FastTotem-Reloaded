@@ -1,0 +1,16 @@
+{
+     "$schema": "https://raw.githubusercontent.com/TeseractMCS/tesselator-schemas/main/plugin/v1.0.json",
+     "name": "Fast Totem Reloaded",
+     "id": "fast-totem",
+     "version": "1.0.0-beta",
+     "authors": [
+          "NxmbersCib"
+     ],
+     "description": "A rebranded Fast Totem build, with a new and fresh codebase and creator features",
+     "entrypoints": {
+          "main": {
+               "FastTotem": "me/nxmberscib/fast-totem/FastTotem"
+          }
+     },
+     "external": []
+}
