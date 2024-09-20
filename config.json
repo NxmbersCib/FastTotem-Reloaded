@@ -6,12 +6,18 @@
           "behaviorPack": "./src/main/resources/behavior",
           "resourcePack": "./src/main/resources/assets"
      },
+     "version": "0.1.0-beta",
+     "target": "1.21.30",
      "regolith": {
           "dataPath": "./src/main/js",
           "filterDefinitions": {
                "tesselator": {
                     "url": "github.com/TeseractMCS/regolith-filters",
-                    "version": "latest"
+                    "version": "2.0.1"
+               },
+               "packer": {
+                    "url": "github.com/MCDevKit/regolith-library",
+                    "version": "1.0.3"
                }
           },
           "formatVersion": "1.4.0",
@@ -24,7 +30,31 @@
                     },
                     "filters": [
                          {
-                              "filter": "tesselator"
+                              "filter": "tesselator",
+                              "settings": {
+                                   "minify": false
+                              }
+                         }
+                    ]
+               },
+               "export": {
+                    "export": {
+                         "build": "standard",
+                         "readOnly": false,
+                         "target": "development"
+                    },
+                    "filters": [
+                         {
+                              "filter": "tesselator",
+                              "settings": {
+                                   "minify": true
+                              }
+                         },
+                         {
+                              "filter": "packer",
+                              "settings": {
+                                   "output": "build/fast-totem-r@${config.version}+${config.target}.mcaddon"
+                              }
                          }
                     ]
                }

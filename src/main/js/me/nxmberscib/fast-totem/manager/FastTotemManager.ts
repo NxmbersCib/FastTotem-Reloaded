@@ -1,6 +1,6 @@
-import { Player } from "@minecraft/server";
-import { SwappableItem } from "../interface/SwappableItem";
-import FastTotem from "../FastTotem";
+import { world } from "@minecraft/server";
+import { SwappableItem } from "../util/interface/SwappableItem";
+import { Alerts } from "../util/enum/Alerts";
 
 export class FastTotemManager {
     private readonly SWAPPABLES: Map<string, SwappableItem> = new Map();
@@ -9,39 +9,21 @@ export class FastTotemManager {
         this.SWAPPABLES.set(item.typeId, item);
     }
 
-    public swappableEnabled(player: Player, swappable: SwappableItem | string) {
-        let identifier: string;
-
-        if (typeof swappable === "string") {
-            identifier = FastTotem.PLUGIN_ID + swappable;
-        } else {
-            identifier = FastTotem.PLUGIN_ID + swappable.typeId;
-        }
-
-        const enabled =
-            (player.getDynamicProperty(
-                identifier + "::swappable",
-            ) as boolean) ?? true;
-
-        return enabled;
+    public getAlert(alert: Alerts) {
+        return world.getDynamicProperty(alert);
     }
 
-    public toggleSwappable(
-        player: Player,
-        swappable: SwappableItem | string,
-        toggle?: boolean,
-    ) {
-        let identifier: string;
+    public setAlert(alert: Alerts, alertString: string) {
+        world.setDynamicProperty(alert, alertString);
+    }
 
-        if (typeof swappable === "string") {
-            identifier = FastTotem.PLUGIN_ID + swappable;
-        } else {
-            identifier = FastTotem.PLUGIN_ID + swappable.typeId;
-        }
+    public toggleAlert(alert: Alerts, enabled?: boolean) {
+        let isEnabled = enabled ?? this.alertEnabled(alert);
 
-        player.setDynamicProperty(
-            identifier + "::swappable",
-            toggle ?? !this.swappableEnabled(player, swappable),
-        );
+        world.setDynamicProperty(alert, isEnabled);
+    }
+
+    public alertEnabled(alert: Alerts): boolean {
+        return (world.getDynamicProperty(alert) ?? true) as boolean;
     }
 }

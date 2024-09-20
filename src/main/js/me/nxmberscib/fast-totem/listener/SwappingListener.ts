@@ -16,7 +16,7 @@ export class SwappingListener {
     }: ItemUseBeforeEvent) {
         if (
             !this.SWAPPABLE_ITEMS.includes(itemStack.typeId) ||
-            !FastTotem.getManager().swappableEnabled(player, itemStack.typeId)
+            !FastTotem.getPlayerManager().swappableEnabled(player, itemStack.typeId)
         ) {
             return;
         }
