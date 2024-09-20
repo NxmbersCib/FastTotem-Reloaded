@@ -16,19 +16,27 @@ import { MainForm } from "./MainForm";
 })
 export class OptionChanger {
     public constructor(
-        private optionId: string,
-        private optionDisplay: string,
+        private readonly optionId: string,
+        private readonly optionDisplay: string,
     ) {}
 
     @Button2(Color.Emerald + "Enable")
     private onEnabled(player: Player) {
-        FastTotem.toggleSwappable(player, this.optionId, true);
+        FastTotem.getManager().toggleSwappable(player, this.optionId, true);
+        player.playSound("note.pling");
+        player.sendMessage(
+            Color.Emerald + this.optionDisplay + " has been enabled.",
+        );
         return player.sendForm(new MainForm());
     }
 
     @Button1(Color.Redstone + "Disable")
     private onDisabled(player: Player) {
-        FastTotem.toggleSwappable(player, this.optionId, false);
+        FastTotem.getManager().toggleSwappable(player, this.optionId, false);
+        player.playSound("note.pling");
+        player.sendMessage(
+            Color.Redstone + this.optionDisplay + " has been disabled.",
+        );
         return player.sendForm(new MainForm());
     }
 

@@ -1,14 +1,14 @@
 import { world } from "@minecraft/server";
 import {
     Color,
-    EntityResurrectEvent,
+    EntityResurrectBeforeEvent,
     EventHandler,
     FormatUtil,
 } from "@teseractmcs/server-api";
 
 export default class ResurrectionListener {
     @EventHandler
-    private onResurrection({ entity: player }: EntityResurrectEvent) {
+    private onResurrection({ entity: player }: EntityResurrectBeforeEvent) {
         if (!player.isPlayer()) {
             return;
         }

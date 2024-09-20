@@ -9,53 +9,15 @@ import { SwappingListener } from "./listener/SwappingListener";
 import ResurrectionListener from "./listener/ResurrectionListener";
 import { SwappableItem } from "./interface/SwappableItem";
 import { ConfigCommand } from "./command/ConfigCommand";
+import { FastTotemManager } from "./manager/FastTotemManager";
 
 export default class FastTotem extends TeseractPlugin {
     public static override readonly PLUGIN_ID: string = "fasttotem";
     public static readonly LOGGER: Logger = Teseract.getLogger(this.PLUGIN_ID);
-    private static readonly SWAPPABLES: Map<string, SwappableItem> = new Map();
+    private static readonly manager: FastTotemManager = new FastTotemManager();
 
-    public static registerSwappable(item: SwappableItem) {
-        this.SWAPPABLES.set(item.typeId, item);
-    }
-
-    public static swappableEnabled(
-        player: Player,
-        swappable: SwappableItem | string,
-    ) {
-        let identifier: string;
-
-        if (typeof swappable === "string") {
-            identifier = this.PLUGIN_ID + swappable;
-        } else {
-            identifier = this.PLUGIN_ID + swappable.typeId;
-        }
-
-        const enabled =
-            (player.getDynamicProperty(
-                identifier + "::swappable",
-            ) as boolean) ?? true;
-
-        return enabled;
-    }
-
-    public static toggleSwappable(
-        player: Player,
-        swappable: SwappableItem | string,
-        toggle?: boolean,
-    ) {
-        let identifier: string;
-
-        if (typeof swappable === "string") {
-            identifier = this.PLUGIN_ID + swappable;
-        } else {
-            identifier = this.PLUGIN_ID + swappable.typeId;
-        }
-
-        player.setDynamicProperty(
-            identifier + "::swappable",
-            toggle ?? !this.swappableEnabled(player, swappable),
-        );
+    public static getManager() {
+        return this.manager;
     }
 
     public override onLoaded() {

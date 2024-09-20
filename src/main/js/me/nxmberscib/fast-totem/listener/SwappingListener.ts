@@ -1,9 +1,5 @@
-import {
-    ItemStack,
-    ItemUseBeforeEvent,
-    ItemUseOnAfterEvent,
-} from "@minecraft/server";
-import { EventHandler, Teseract } from "@teseractmcs/server-api";
+import { ItemUseBeforeEvent } from "@minecraft/server";
+import { EventHandler } from "@teseractmcs/server-api";
 import FastTotem from "../FastTotem";
 
 export class SwappingListener {
@@ -20,7 +16,7 @@ export class SwappingListener {
     }: ItemUseBeforeEvent) {
         if (
             !this.SWAPPABLE_ITEMS.includes(itemStack.typeId) ||
-            !FastTotem.swappableEnabled(player, itemStack.typeId)
+            !FastTotem.getManager().swappableEnabled(player, itemStack.typeId)
         ) {
             return;
         }
