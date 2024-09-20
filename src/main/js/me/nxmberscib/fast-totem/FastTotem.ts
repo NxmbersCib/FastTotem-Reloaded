@@ -1,7 +1,7 @@
 import { WorldInitializeBeforeEvent } from "@minecraft/server";
 import { Logger, Teseract, TeseractPlugin } from "@teseractmcs/server-api";
 import { SwappingListener } from "./listener/SwappingListener";
-import ResurrectionListener from "./listener/ResurrectionListener";
+import { ResurrectionListener } from "./listener/ResurrectionListener";
 import { ConfigCommand } from "./command/ConfigCommand";
 import { FastTotemManager } from "./manager/FastTotemManager";
 

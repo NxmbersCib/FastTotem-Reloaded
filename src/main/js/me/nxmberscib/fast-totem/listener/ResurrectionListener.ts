@@ -6,7 +6,7 @@ import {
     FormatUtil,
 } from "@teseractmcs/server-api";
 
-export default class ResurrectionListener {
+export class ResurrectionListener {
     @EventHandler
     private onResurrection({ entity: player }: EntityResurrectBeforeEvent) {
         if (!player.isPlayer()) {
