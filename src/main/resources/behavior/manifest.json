@@ -2,7 +2,7 @@
      "format_version": 2,
      "header": {
           "name": "Fast Totem: Reloaded",
-          "description": "Project Description",
+          "description": "A rebranded Fast Totem build, with a new and fresh codebase and creator features",
           "version": "0.1.0-beta",
           "uuid": "454e1755-42bc-4aa1-820f-6a56b14e0d62",
           "min_engine_version": [
@@ -16,7 +16,7 @@
                "type": "data",
                "description": "",
                "uuid": "a6c49e44-72cb-4090-b0d1-d9dd41b5e738",
-               "version": "0.1.0-beta"
+                 "version": "0.1.0-beta"
           }
      ],
      "dependencies": []
