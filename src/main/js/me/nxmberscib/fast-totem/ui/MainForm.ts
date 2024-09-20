@@ -14,7 +14,7 @@ import { OptionChanger } from "./OptionChanger";
 })
 export class MainForm {
     private formatEnabled(player: Player, swappable: string) {
-        return FastTotem.swappableEnabled(player, swappable)
+        return FastTotem.getManager().swappableEnabled(player, swappable)
             ? Color.Emerald + "Enabled"
             : Color.Redstone + "Disabled";
     }
