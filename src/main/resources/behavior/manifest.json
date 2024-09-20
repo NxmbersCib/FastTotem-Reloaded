@@ -3,7 +3,7 @@
      "header": {
           "name": "Fast Totem: Reloaded",
           "description": "Project Description",
-          "version": "1.0.0",
+          "version": "0.1.0-beta",
           "uuid": "454e1755-42bc-4aa1-820f-6a56b14e0d62",
           "min_engine_version": [
                1,
@@ -16,25 +16,8 @@
                "type": "data",
                "description": "",
                "uuid": "a6c49e44-72cb-4090-b0d1-d9dd41b5e738",
-               "version": "1.0.0"
-          },
-          {
-               "type": "script",
-               "description": "",
-               "uuid": "952ff90c-8772-4fa3-bcd8-efa7b489db7b",
-               "version": "1.0.0",
-               "language": "Javascript",
-               "entry": "scripts/index.js"
+               "version": "0.1.0-beta"
           }
      ],
-     "dependencies": [
-          {
-               "module_name": "@minecraft/server",
-               "version": "1.14.0-beta"
-          },
-          {
-               "module_name": "@minecraft/server-ui",
-               "version": "1.3.0-beta"
-          }
-     ]
+     "dependencies": []
 }

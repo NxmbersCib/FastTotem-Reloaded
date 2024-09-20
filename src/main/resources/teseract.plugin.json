@@ -1,5 +1,5 @@
 {
-     "$schema": "https://raw.githubusercontent.com/TeseractMCS/tesselator-schemas/main/plugin/v1.0.json",
+     "format_version": 2,
      "name": "Fast Totem Reloaded",
      "id": "fast-totem",
      "version": "1.0.0-beta",
@@ -7,10 +7,12 @@
           "NxmbersCib"
      ],
      "description": "A rebranded Fast Totem build, with a new and fresh codebase and creator features",
-     "entrypoints": {
-          "main": {
-               "FastTotem": "me/nxmberscib/fast-totem/FastTotem"
-          }
-     },
+     "entryPoints": [
+          "me/nxmberscib/fast-totem/FastTotem"
+     ],
+     "modules": [
+          "@minecraft/server@1.15.0-beta",
+          "@minecraft/server-ui@1.3.0"
+     ],
      "external": []
 }

@@ -9,13 +9,9 @@
      "regolith": {
           "dataPath": "./src/main/js",
           "filterDefinitions": {
-               "swc": {
-                    "runWith": "nodejs",
-                    "script": "./filters/tesselator/swc.js"
-               },
-               "esbuild": {
-                    "runWith": "nodejs",
-                    "script": "./filters/tesselator/esbuild.js"
+               "tesselator": {
+                    "url": "github.com/TeseractMCS/regolith-filters",
+                    "version": "latest"
                }
           },
           "formatVersion": "1.4.0",
@@ -28,7 +24,7 @@
                     },
                     "filters": [
                          {
-                              "filter": "esbuild"
+                              "filter": "tesselator"
                          }
                     ]
                }
